@@ -7,10 +7,10 @@
  * @link      http://www.smartsupp.com
  * @copyright 2016 Smartsupp.com
  *
- * Plugin Name:       Smartsupp Live Chat
+ * Plugin Name:       Smartsupp – live chat, AI shopping assistant and chatbots
  * Plugin URI:        http://www.smartsupp.com
  * Description:       Smartsupp live chat, chatbots and AI is a powerful customer engagement solution that helps you be closer with your customers and sell more. The plugin will enable the chat widget on your website for live chat and chatbots. With Smartsupp you can also can use Email and Whatsapp channels in communicating with your customers. Optional API for advanced chat box modifications.
- * Version:           3.8.2
+ * Version:           3.9.2
  * Author:            Smartsupp
  * Author URI:        http://www.smartsupp.com
  * Text Domain:       smartsupp-live-chat

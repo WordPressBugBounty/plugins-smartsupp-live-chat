@@ -1,5 +1,20 @@
 *** Smartsupp – live chat, AI shopping assistant and chatbots Changelog ***
 
+2025-11-27 - version 3.9.2
+* Changed - Check unfiltered_html capability on custom code edit
+
+2025-11-26 - version 3.9.1
+* Fixed - Fix WordPress coding standards
+
+2025-11-19 - version 3.9
+* Fixed - Fix a possible XSS security issue
+
+2025-07-14 - version 3.8.3
+* Fixed - enqueue styles
+
+2025-07-08 - version 3.8.2
+* Fixed - Deprecated: mb_strlen() error
+
 2025-06-23 - version 3.8.1
 * Fixed - Remove deprecated plugin_url property creation
 

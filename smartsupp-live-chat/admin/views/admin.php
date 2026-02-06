@@ -1,14 +1,12 @@
 <?php
 
-$pluginUrl = plugins_url( '', dirname( __DIR__ ) );
+$smartsuppLiveChatPluginUrl = plugins_url( '', dirname( __DIR__ ) );
 
-echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">' .
-	'<link rel="stylesheet" property="stylesheet" type="text/css" href="' . esc_url( $pluginUrl ) . '/assets/style.css" />';
-
-?><div class="wrap" id="content">
+?>
+<div class="wrap" id="content">
 	<?php if ( $options['active'] ) { ?>
 		<div class="alert alert-warning gift">
-			<img src="<?php echo esc_url( $pluginUrl ); ?>/images/gift.svg" alt="Gift icon">
+			<img src="<?php echo esc_url( $smartsuppLiveChatPluginUrl ); ?>/images/gift.svg" alt="Gift icon">
 			<span>
 				<?php
 				printf(
@@ -22,10 +20,10 @@ echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppi
 		</div>
 		<div class="active">
 			<header class="header">
-				<img src="<?php echo esc_url( $pluginUrl ); ?>/images/logo.png" alt="smartsupp logo" class="header__logo" />
+				<img src="<?php echo esc_url( $smartsuppLiveChatPluginUrl ); ?>/images/logo.png" alt="smartsupp logo" class="header__logo" />
 				<nav class="hide--up-md">
 					<div class="header-user">
-						<img src="<?php echo esc_url( $pluginUrl ); ?>/images/avatar-grey.png" alt="" class="header-user__avatar">
+						<img src="<?php echo esc_url( $smartsuppLiveChatPluginUrl ); ?>/images/avatar-grey.png" alt="" class="header-user__avatar">
 						<span class="header-user__email">
 							<?php echo isset( $options['email'] ) ? esc_html( $options['email'] ) : ''; ?>
 						</span>
@@ -66,7 +64,7 @@ echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppi
 					</div>
 				</div>
 				<div class="main__right">
-					<img src="<?php echo esc_url( $pluginUrl ); ?>/images/all-done.png" alt="All done">
+					<img src="<?php echo esc_url( $smartsuppLiveChatPluginUrl ); ?>/images/all-done.png" alt="All done">
 				</div>
 			</main>
 
@@ -103,7 +101,7 @@ echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppi
 
 							<div class="saved">
 								<?php if ( $message ) { ?>
-									<img src="<?php echo esc_url( $pluginUrl ); ?>/images/all-changes-saved.png" class="saved__img" alt="Saved icon">
+									<img src="<?php echo esc_url( $smartsuppLiveChatPluginUrl ); ?>/images/all-changes-saved.png" class="saved__img" alt="Saved icon">
 									<p class="saved__text">
 										<?php echo esc_html( $message ); ?>
 									</p>
@@ -117,7 +115,7 @@ echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppi
 	<?php } else { ?>
 		<div class="">
 			<header class="header">
-				<img src="<?php echo esc_url( $pluginUrl ); ?>/images/logo.png" alt="smartsupp logo" class="header__logo" />
+				<img src="<?php echo esc_url( $smartsuppLiveChatPluginUrl ); ?>/images/logo.png" alt="smartsupp logo" class="header__logo" />
 				<nav class="hide--up-md">
 					<div class="header-user">
 						<span class="header-user__email" data-toggle-form data-multitext data-register="<?php esc_attr_e( 'Already have an account?', 'smartsupp-live-chat' ); ?>" data-login="<?php esc_attr_e( 'Not a Smartsupp user yet?', 'smartsupp-live-chat' ); ?>">
@@ -204,7 +202,7 @@ echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppi
 				</div>
 
 				<div class="main__right">
-					<img src="<?php echo esc_url( $pluginUrl ); ?>/images/tablet-screen.png" alt="Tablet screen">
+					<img src="<?php echo esc_url( $smartsuppLiveChatPluginUrl ); ?>/images/tablet-screen.png" alt="Tablet screen">
 				</div>
 
 			</main>
@@ -221,4 +219,4 @@ echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppi
 
 </div>
 
-<?php echo '<script src="' . esc_url( $pluginUrl ) . '/assets/script.js"></script>'; ?>
+<?php wp_enqueue_script('smartsuppLiveChatPluginAdminScript', esc_url( $smartsuppLiveChatPluginUrl ) . '/assets/script.js' ); ?>

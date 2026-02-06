@@ -109,6 +109,7 @@ class Smartsupp {
 	 */
 	public function load_plugin_textdomain() {
 		$domain = $this->plugin_text_domain;
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
@@ -117,6 +118,7 @@ class Smartsupp {
 
 
 	public static function is_woocommerce_active() {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
 	}
 
@@ -195,6 +197,7 @@ class Smartsupp {
 	private function addSpent( ChatGenerator $code, $user ) {
 		global $wpdb;
 		if ( ! get_user_meta( $user->ID, '_money_spent', true ) ) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$spent = $wpdb->get_var(
 				$wpdb->prepare(
 					"
@@ -238,6 +241,7 @@ class Smartsupp {
 	private function addOrder( ChatGenerator $code, $user ) {
 		global $wpdb;
 		if ( ! get_user_meta( $user->ID, '_order_count', true ) ) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$count = $wpdb->get_var(
 				$wpdb->prepare(
 					"

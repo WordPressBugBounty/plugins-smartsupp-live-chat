@@ -34,6 +34,7 @@ class Smartsupp_Admin {
 
 		add_action( 'admin_menu', array( $this, 'addMenuItems' ) );
 		add_action( 'admin_init', array( $this, 'performAction' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueueAssets' ) );
 
 		$plugin_basename = plugin_basename( plugin_dir_path( realpath( __DIR__ ) ) . $this->plugin_slug . '.php' );
 		add_filter(
@@ -106,6 +107,9 @@ class Smartsupp_Admin {
 		if ( ! is_user_logged_in() ) {
 			return;
 		}
+		if ( ! current_user_can('manage_options') ) {
+			return;
+		}
 		if ( ! isset( $_GET['ssaction'] ) ) {
 			return;
 		}
@@ -115,6 +119,9 @@ class Smartsupp_Admin {
 		switch ( $action ) {
 			case 'login':
 			case 'register':
+                if ( ! isset( $_POST['email'] ) || ! isset( $_POST['password'] ) ) {
+                    return;
+                }
 				if ( ! isset( $_POST['_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_nonce'] ) ), 'smartsupp' ) ) {
 					$message = 'Invalid nonce';
 					break;
@@ -145,6 +152,13 @@ class Smartsupp_Admin {
 				}
 				break;
 			case 'update':
+                if ( ! isset( $_POST['code'] ) ) {
+                    return;
+                }
+                if ( ! current_user_can('unfiltered_html') ) {
+                    $message = 'Not allowed';
+                    break;
+                }
 				if ( ! isset( $_POST['_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_nonce'] ) ), 'smartsupp_update' ) ) {
 					$message = 'Invalid nonce';
 					break;
@@ -321,5 +335,14 @@ class Smartsupp_Admin {
 			__( 'Custom code was updated.', 'smartsupp-live-chat' ),
 			__( 'Invalid action', 'smartsupp-live-chat' ),
 		);
+	}
+
+	public function enqueueAssets() {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( empty( $_GET['page'] ) || $_GET['page'] !== $this->plugin_slug ) {
+			return;
+		}
+		wp_enqueue_style( 'smartsupp-admin-fonts', 'https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap', array(), null );
+		wp_enqueue_style( 'smartsupp-admin', esc_url( plugins_url( 'assets/style.css', dirname( __FILE__ ) ) ), array(), null );
 	}
 }
