@@ -3,9 +3,9 @@ Contributors: smartsupp, marekgach, huttenbachmedard, jansvabik
 Donate link:
 Tags: Smartsupp, Livechat, Online chat, Chatbot, AI
 Requires at least: 3.0
-Tested up to: 6.8
-Requires PHP: 5.3.2
-Stable tag: 3.9.2
+Tested up to: 7.1
+Requires PHP: 5.6
+Stable tag: 3.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,9 +112,11 @@ WordPress 3.0 or higher, PHP at least 5.3.2
 3. Collect leads with a chatbot and boost your e-shop sales
 4. Manage multichannel live chat conversations on one dashboard.
 5. Manage conversations on-the-go with the Smartsupp mobile app.
-6. Smartsupp Black Friday is ON: For new users 40% off during November.
 
 == Changelog ==
+
+= 3.10.0 =
+* Update dependencies
 
 = 3.9.2 =
 * Check unfiltered_html capability on custom code edit
